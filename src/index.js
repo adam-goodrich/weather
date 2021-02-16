@@ -15,9 +15,9 @@ async function getTempF(city) {
     return `The tempature is ${Math.round(cityData.main.temp)}℉ in ${
       cityData.name
     }. 
-The local conditions are ${cityData.weather[1].description}`;
+The local conditions are ${cityData.weather[0].main}`;
   } catch (e) {
-    console.log(`${city} not found`);
+    return `${city} not found`, e;
   }
 };
 
@@ -33,20 +33,29 @@ async function getTempC(city) {
     return `The tempature is ${Math.round(cityData.main.temp)}°C in ${
       cityData.name
     }.
-The local conditions are: ${cityData.weather[0].description}`;
+The local conditions are ${cityData.weather[0].description}`;
   } catch (e) {
-    console.log(`${city} not found`);
+    console.log(`${city} not found`, e);
   }
 }
 
-async function drawData(city) {
+async function drawDataF(city) {
   const content = document.getElementById("content");
   const info = document.createElement("div");
-  info.innerHTML =  await getTempF(city)
+  result = await getTempF(city)
+  info.innerHTML = result
   content.appendChild(info)
 }
 
-drawData("Boston")
+
+async function drawDataC(city) {
+  const content = document.getElementById("content");
+  const info = document.createElement("div");
+  info.innerHTML =  await getTempC(city)
+  content.appendChild(info)
+}
+
+drawDataF("New York")
 
 
 
