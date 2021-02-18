@@ -68,8 +68,6 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 
-
-
 /* Remove default margin */
 body,
 h1,
@@ -89,28 +87,48 @@ dd {
 }
 
 body {
-  background-image: url('images/sunny.gif');
+  background-image: url("images/cloud.gif");
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .info {
   border: 3px solid black;
-  border-radius: 3rem;
+  border-radius: 2rem;
   width: 30rem;
   text-align: center;
-  margin: auto;
-  margin-top: 10rem;
+  margin: 0;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background-color: rgb(196, 211, 233);
   padding: 50px;
-  opacity: 85%;
+  box-shadow: 3px 3px #1d1d1d;
 }
 
 .icon {
   margin: auto;
   border: 2px solid black;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin-top: 5%;
   margin-bottom: 5%;
   background-color: white;
+}
+
+.headercontainer {
+  border: 2px solid black;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: aliceblue;
+  box-shadow: 3px 3px #1d1d1d;
+
+}
+
+.searchInputName {
+  padding-right: 8px;
 }
