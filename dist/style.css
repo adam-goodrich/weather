@@ -87,7 +87,7 @@ dd {
 }
 
 body {
-  background-image: url("images/cloud.gif");
+  background-image: url("images/clear.gif");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -95,19 +95,13 @@ body {
 
 .info {
   border: 3px solid black;
-  border-radius: 2rem;
+  border-radius: 5rem;
   width: 30rem;
   text-align: center;
-  margin: 0;
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   background-color: rgb(196, 211, 233);
-  padding: 50px;
   box-shadow: 3px 3px #1d1d1d;
-
+  padding: 90px 0;
+  margin: auto;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
   -ms-animation: fadein 1s; /* Internet Explorer */
@@ -158,9 +152,9 @@ body {
   margin: auto;
   border: 2px solid black;
   border-radius: 1rem;
-  margin-top: 5%;
-  margin-bottom: 5%;
   background-color: white;
+  overflow: auto;
+  display: flex;
 }
 
 .headercontainer {
@@ -170,9 +164,31 @@ body {
   border-radius: 10px;
   margin: 20px;
   background-color: aliceblue;
-  box-shadow: 3px 3px #1d1d1d;
+  box-shadow: 2px 2px 2px #a4a4a4;
 }
 
 .searchInputName {
   padding-right: 8px;
+}
+
+.gifDiv {
+  height: 72vh;
+  width: 80vw;
+  min-height: 500px;
+  min-width: 550px;
+  margin: auto;
+  border-radius: 10rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
 }

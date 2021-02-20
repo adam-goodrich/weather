@@ -6,6 +6,7 @@ function removeAllChildNodes(parent) {
 
 async function getTempF(city) {
   try {
+    document.body.style.backgroundImage = `url("images/clear.gif")`;
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=3665979cfe86d7791e40a7595465d684`,
       {
@@ -30,7 +31,8 @@ async function getTempF(city) {
     } else {
       condition = "clear";
     }
-    document.body.style.backgroundImage = `url("images/${condition}.gif")`;
+    const gifDiv = document.getElementById("gifDiv");
+    gifDiv.style.backgroundImage = `url("images/${condition}.gif")`;
 
     const d = new Date();
     const months = [
@@ -90,6 +92,7 @@ async function getTempF(city) {
 
 async function getTempC(city) {
   try {
+    document.body.style.backgroundImage = `url("images/clear.gif")`;
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3665979cfe86d7791e40a7595465d684`,
       {
@@ -114,7 +117,8 @@ async function getTempC(city) {
     } else {
       condition = "clear";
     }
-    document.body.style.backgroundImage = `url("images/${condition}.gif")`;
+    const gifDiv = document.getElementById("gifDiv");
+    gifDiv.style.backgroundImage = `url("images/${condition}.gif")`;
 
     const d = new Date();
     const months = [
@@ -174,6 +178,10 @@ async function getTempC(city) {
 
 async function drawDataF(city, tempTypeBool) {
   const fahrenheitTrue = tempTypeBool;
+  const gifDiv = document.createElement("div");
+  gifDiv.id = "gifDiv";
+  gifDiv.classList.add("gifDiv");
+  content.appendChild(gifDiv);
   const info = document.createElement("div");
   info.classList.add("info");
   if (fahrenheitTrue) {
@@ -187,7 +195,7 @@ async function drawDataF(city, tempTypeBool) {
 <p>Please Check Your Spelling And Try Again</p>`;
   }
   info.innerHTML = result;
-  content.appendChild(info);
+  gifDiv.appendChild(info);
 }
 
 const header = document.getElementById("header");
@@ -196,11 +204,11 @@ const toggleContainer = document.createElement("div");
 toggleContainer.classList.add("headercontainer");
 headerContainer.classList.add("headercontainer");
 const content = document.getElementById("content");
-
 const searchInputName = document.createElement("label");
 searchInputName.classList.add("searchInputName");
 searchInputName.innerHTML = "City Name:";
 const search = document.createElement("input");
+search.id = "searchInput";
 search.type = "text";
 search.placeholder = "New York";
 const submitButton = document.createElement("button");
@@ -209,7 +217,6 @@ header.appendChild(headerContainer);
 headerContainer.appendChild(searchInputName);
 headerContainer.appendChild(search);
 headerContainer.appendChild(submitButton);
-
 const fDiv = document.createElement("div");
 const cDiv = document.createElement("div");
 const fChoice = document.createElement("input");
@@ -229,17 +236,13 @@ cChoice.value = "celsius";
 const cLabel = document.createElement("label");
 cLabel.htmlfor = "celsius";
 cLabel.innerHTML = "Celsius";
-
 header.appendChild(toggleContainer);
 toggleContainer.appendChild(fDiv);
 toggleContainer.appendChild(cDiv);
-
 fDiv.appendChild(fChoice);
 fDiv.appendChild(fLabel);
-
 cDiv.appendChild(cChoice);
 cDiv.appendChild(cLabel);
-
 let searchCity = "New York";
 
 submitButton.addEventListener("click", () => {
@@ -263,6 +266,31 @@ submitButton.addEventListener("click", () => {
   }
   removeAllChildNodes(content);
   drawDataF(searchCity, checkedRadio);
+});
+
+search.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    var radios = document.getElementsByName("toggleSwitch");
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+        if (radios[i].value == "fahrenheit") {
+          checkedRadio = true;
+        } else {
+          checkedRadio = false;
+        }
+        break;
+      }
+    }
+    searchCity = search.value;
+    if (search.value == "") {
+      searchCity = "New York";
+    } else {
+      searchCity = search.value;
+    }
+    removeAllChildNodes(content);
+    drawDataF(searchCity, checkedRadio);
+  }
 });
 
 var radios = document.getElementsByName("toggleSwitch");
