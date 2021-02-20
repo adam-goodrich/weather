@@ -8,7 +8,7 @@ async function getTempF(city) {
   try {
     document.body.style.backgroundImage = `url("images/clear.gif")`;
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=3665979cfe86d7791e40a7595465d684`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=3665979cfe86d7791e40a7595465d684`,
       {
         mode: "cors",
       }
@@ -81,7 +81,7 @@ async function getTempF(city) {
     <p>Temp: ${Math.round(cityData.main.temp)}°F</p>
     <p>Feels Like: ${Math.round(cityData.main.feels_like)}°F</p>
     <p>${finalSentence}</p>
-    <img class="icon" src="http://openweathermap.org/img/wn/${
+    <img class="icon" src="https://openweathermap.org/img/wn/${
       cityData.weather[0].icon
     }@2x.png">
     `;
@@ -94,7 +94,7 @@ async function getTempC(city) {
   try {
     document.body.style.backgroundImage = `url("images/clear.gif")`;
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3665979cfe86d7791e40a7595465d684`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3665979cfe86d7791e40a7595465d684`,
       {
         mode: "cors",
       }
@@ -167,7 +167,7 @@ async function getTempC(city) {
     <p>Temp: ${Math.round(cityData.main.temp)}°C</p>
     <p>Feels Like: ${Math.round(cityData.main.feels_like)}°C</p>
     <p>${finalSentence}</p>
-    <img class="icon" src="http://openweathermap.org/img/wn/${
+    <img class="icon" src="https://openweathermap.org/img/wn/${
       cityData.weather[0].icon
     }@2x.png">
     `;
