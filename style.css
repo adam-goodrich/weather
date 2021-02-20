@@ -173,17 +173,18 @@ body {
 
 .gifDiv {
   height: 72vh;
-  width: 80vw;
+  width: 100%;
   min-height: 500px;
   min-width: 550px;
   margin: auto;
-  border-radius: 10rem;
+  /* border-radius: 1rem; */
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  /* border: 3px solid white; */
   
 
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
