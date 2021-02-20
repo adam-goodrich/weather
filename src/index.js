@@ -190,14 +190,6 @@ async function drawDataF(city, tempTypeBool) {
   content.appendChild(info);
 }
 
-async function drawDataC(city) {
-  const content = document.getElementById("content");
-  const info = document.createElement("div");
-  info.classList.add("info");
-  info.innerHTML = await getTempC(city);
-  content.appendChild(info);
-}
-
 const header = document.getElementById("header");
 const headerContainer = document.createElement("div");
 const toggleContainer = document.createElement("div");
@@ -264,6 +256,11 @@ submitButton.addEventListener("click", () => {
     }
   }
   searchCity = search.value;
+  if (search.value == "") {
+    searchCity = "New York";
+  } else {
+    searchCity = search.value;
+  }
   removeAllChildNodes(content);
   drawDataF(searchCity, checkedRadio);
 });
@@ -273,14 +270,13 @@ var radios = document.getElementsByName("toggleSwitch");
 for (var i = 0; i < radios.length; i++) {
   radios[i].addEventListener("change", () => {
     var radios = document.getElementsByName("toggleSwitch");
-    console.log(search.value)
+    console.log(search.value);
     if (search.value == "") {
-      searchCity = "New York"
+      searchCity = "New York";
     } else {
       searchCity = search.value;
     }
     for (var i = 0, length = radios.length; i < length; i++) {
-
       if (radios[i].checked) {
         if (radios[i].value == "fahrenheit") {
           checkedRadio = true;
