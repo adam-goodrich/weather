@@ -65,11 +65,13 @@ async function getTempF(city) {
       (DayNumber == "13")
     ) {
       dateEnd = "th";
-    } else if (DayNumber[DayNumber.length - 1] == "1") {
+    } else if (DayNumber == "23") {
+      dateEnd = "rd";
+    } else if ((DayNumber == "21") | (DayNumber == "31")) {
       dateEnd = "st";
-    } else if (DayNumber[DayNumber.length - 1] == "2") {
+    } else if (DayNumber == "22") {
       dateEnd = "nd";
-    } else if (DayNumber[DayNumber.length - 1] == "3") {
+    } else if (DayNumber == "23") {
       dateEnd = "rd";
     } else {
       dateEnd = "th";
@@ -151,11 +153,13 @@ async function getTempC(city) {
       (DayNumber == "13")
     ) {
       dateEnd = "th";
-    } else if (DayNumber[DayNumber.length - 1] == "1") {
+    } else if (DayNumber == "23") {
+      dateEnd = "rd";
+    } else if ((DayNumber == "21") | (DayNumber == "31")) {
       dateEnd = "st";
-    } else if (DayNumber[DayNumber.length - 1] == "2") {
+    } else if (DayNumber == "22") {
       dateEnd = "nd";
-    } else if (DayNumber[DayNumber.length - 1] == "3") {
+    } else if (DayNumber == "23") {
       dateEnd = "rd";
     } else {
       dateEnd = "th";
